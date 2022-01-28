@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        label{width:80px; display: inline-block; text-align: right;}
+        input{width:100px;margin-bottom:10px; }
+        
+        table,th,td{border:1px solid black; border-collapse: collapse;
+              text-align: center;
+        }
+        th,td{height:40px;}
+        table{width:1200px; }
+        tr td{cursor: pointer;}
+    </style>
+    <script>
+        $(function(){
+            var num = 1;
+            var click_num = 0
+            $("#check_id").click(function(){
+                return  click_num = 1;
+            })
+            
+            $("#btn").click(function(){
+                // if($("input:checkbox[name:accept]:checked").length != 2){
+                if(click_num !=1){
+                    alert("중복확안을 체크하세요");
+                    return click_num = 0;
+                }else if(click_num ==1){
+                    click_num = 0;
+                }
+                var all_len = $("input:checkbox[name=accept]").length;
+                var checked_len = $("input:checkbox[name=accept]:checked").length;
+                if(checked_len!=all_len){
+                    alert("체크동의 하셔야 합니다");
+                    return false;
+                }
+
+
+                id = $("#id").val();
+                title = $("#title").val();
+                c_date = $("#c_date").val();
+
+                html_form = "";
+                html_form += "<tr id='"+num+"x'>";
+                html_form += "<td>"+num+"</td>";
+                html_form += "<td>"+title+"</td>";
+                html_form += "<td>"+c_date+"</td>";
+                html_form += "<td>"+id+"</td>";
+                html_form += "<td id='"+num+"'onclick='hit("+num+")'>0</td>";
+                html_form += "<td><button onclick= del("+num+")>삭제</button></td>";
+                html_form += "</tr>";
+
+                $('#contxt').prepend(html_form);
+                num ++;
+                $("input:checkbox[name=accept]").prop("checked",false);
+            })
+        })
+        
+        
+        function hit(num){
+            $("#"+num).text((Number($("#"+num+"").text()))+1);
+        };
+        
+        function del(num){
+            $("#"+num+"x").remove();
+        };
+    </script>
+</head>
+<body>
+    <label>id</label>
+    <input type="text" name="id" id="id">
+    <button type="button" id="check_id">중복확인</button><br>
+    <label>제목</label>
+    <input type="text" name="title" id="title">
+    <label>동의</label>
+    <input type="checkbox" name="accept" value="a01"><br>
+    <label>날짜</label>
+    <input type="date" name="c_date" id="c_date">
+    <label>동의</label>
+    <input type="checkbox" name="accept" value="a02"><br>
+    <button type="button" id="btn">등록</button>
+    <br><br>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>날짜</th>
+            <th>ID</th>
+            <th>조회수</th>
+            <th>삭제</th>
+        </tr>
+
+        <tbody id = contxt>
+
+        </tbody>
+        
+    </table>
+    
+</body>
+</html>

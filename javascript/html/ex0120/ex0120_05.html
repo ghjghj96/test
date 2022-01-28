@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cal(){
+            var strInput = document.getElementById("numInput").value;
+            var numArr1 = strInput.split(",").map(Number);
+            var numArr2 = strInput.split(",").map(Number);
+            var numMax = Math.max.apply(null,numArr1);
+            var numMix = Math.min.apply(null,numArr1);
+            var seqSort = [];
+            seqSort = numArr1.sort(function(a,b){return a-b});
+            var revSort = [];
+            revSort = numArr2.sort(function(a,b){return b-a});
+            var inputHtml = "";
+            inputHtml = inputHtml + "<tr><td>최대값</td><td>"+numMax+"</td></tr><tr><td>최소값</td><td>"+numMix+"</td></tr><tr><td>오름차순</td><td>"+seqSort+"</td></tr><tr><td>내림차순</td><td>"+revSort+"</td></tr>";
+            document.getElementById("dataIn").innerHTML = inputHtml;
+        }
+    </script>
+    <form action="#" method="">
+        <input type="text" name="numInput" id="numInput">
+        <button type="button" onclick="cal()">계산 확인</button>
+    </form>
+    <br>
+    
+    <table>
+        <colgroup>
+            <col width="100px">
+            <col width="100px">
+        </colgroup>
+        
+        <!-- innerHtml 넣을것 -->
+        <tbody id="dataIn">
+        
+        </tbody>
+    </table>
+</body>
+</html>

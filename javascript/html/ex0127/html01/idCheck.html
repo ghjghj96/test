@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+            height: 100%;
+            background: #f5f6f7;
+        }
+        #wrap{
+            position: relative;
+            min-height: 100%;
+            font-size: 12px;
+        }
+        #header{
+            position: relative;
+            box-sizing: border-box;
+            height: 168px;
+            padding: 62px 0 0;
+            width: 768px;
+            margin: 0 auto;
+        }
+        
+        #h_logo{
+            display: block;
+            overflow: hidden;
+            width: 231px;
+            height: 44px;
+            margin: 0 auto;
+            font-size: 15px;
+            color: transparent;
+            background: url("https://static.nid.naver.com/images/ui/login/pc_sp_login_190522.png") no-repeat -1px -1px;
+        }
+        #container{
+            padding-bottom: 50px;
+            min-height: 185px;
+        }
+        #content{
+            width: 460px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+        }
+        .id_area{
+            position: relative;
+        }
+        .input_row{
+            position: relative;
+            height: 29px;
+            margin: 0 0 14px;
+            padding: 10px 35px 10px 15px;
+            border: solid 1px #dadada;
+            background: #fff;
+        }
+        .input_box{
+            display: block;
+            overflow: hidden;
+        }
+        
+        .int{
+            font-size: 15px;
+            line-height: 16px;
+            position: relative;
+            z-index: 9;
+            width: 100%;
+            height: 16px;
+            padding: 7px 0 6px;
+            color: #000;
+            border: none;
+            background: #fff;
+            appearance: none;
+        }
+        .btn_login{
+            display: block;            width: 100%;            height: 61px;            margin:30px 0 14px;
+            padding-top: 1px;            border: none;            background: #03c75a;
+            text-align: center;            color: #fff;            font-size: 20px;
+            font-weight: 700;            line-height: 61px;            cursor: pointer;
+        }
+        .font_black{color:black; font-weight:600}
+        .font_red{color :red ; font-weight: 600;}
+        </style>
+    <script>
+        $(function(){
+            // $("#uId").val(opener.document.getElementbyID("parentInput").innerText);
+            // $("#uId").val($("#parentInput",opener.document).text());
+            $("#checkBtn").click(function(){
+                // $("#parentInput",opener.document).text($("#uId").val()) ;    //opener.document의 의미가 뭐지?
+                // window.close();
+               
+
+                if ( $("#uId").val() == "admin"){
+                    // alert("중복임");
+                    $("#checkText").text("이미 있는 아이디입니다. 다른 아이디를 입력하세요");
+                    $("#checkText").removeClass("font_black");
+                    $("#checkText").addClass("font_red");
+                    $("#closeBtn").click(function(){
+                        alert("다른 아이디를 입력하세요.");
+                    })
+                }else{
+                    // alert("사용가능")
+                    $("#checkText").text("아이디 사용 가능합니다");
+                    $("#checkText").removeClass("font_red");
+                    $("#checkText").addClass("font_black");
+                    $("#closeBtn").click(function(){
+                        alert("사용 가능합니다")
+                        // alert($("#uId").val())
+                        $("#id2",opener.document).val($("#uId").val()) ;    //opener.document의 의미가 뭐지?
+                        window.close();
+                    })
+                }
+    
+            });
+            $("#closeBtn").click(function(){
+                window.close();
+            });
+        });
+ //제이쿼리는 괄호안에 넣고, 자스는 =할당한다?
+
+
+
+
+
+
+
+
+        
+    </script>
+
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        <h1>
+            <a href="#" id="h_logo"></a>
+        </h1>
+    </div>
+    <div id="container">
+        <div id="content">
+            <div style="margin-bottom: 7px"></div>
+            <form action="naver_index2.jsp">
+                <fieldset style="border: 0">
+                    <div class="id_area">
+                        <div class="input_row" id="id_area">
+                            <span class="input_box">
+                                <input type="text" name="" id="uId" class="int" placeholder="아이디 중복체크">
+                            </span>
+                           
+                        </div> 
+                        <span id= "checkText" class="">
+                           
+                        </span>
+                    </div>
+                    <input class="btn_login" type="button" id="checkBtn" value="중복체크 확인"><br>
+                    <input class="btn_login" type="button" id="closeBtn" value="close">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

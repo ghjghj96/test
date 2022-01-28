@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            if(($("#title").val() == "") || ($("#locat").val() == "")){
+                if($("#title").val() == ""){
+                    alert("모두 입력하셔야 합니다.");
+                    $("#title").focus();
+                }else{
+                    alert("모두 입력하셔야 합니다.");
+                    $("#locat").focus();
+                }
+            }else{
+                alert("최종예약 확인되었습니다.");
+            }
+        })
+
+        $("#title, #locat").focusout(function(){
+            $(this).next().text("내용이 들어갔습니다.");
+        })
+    });
+</script>
+<body>
+    <form>
+        <h3>아래 사항을 모두 입력하시오.</h3>
+        <label>제목</label>
+        <input type="text" name="title" id="title"><span id="s01"></span><br>
+        <label>예약장소</label>
+        <input type="text" name="locat" id="locat"><span></span><br>
+    </form>
+    <button  id="btn">예약확인</button>
+    <table>
+        <tr>
+            <td>제목</td>
+            <td id="t01"></td>
+        </tr>
+        <tr>
+            <td>예약장소</td>
+            <td id="locat01"></td>
+        </tr>
+    </table>
+</body>
+</html>

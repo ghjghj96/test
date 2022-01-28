@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="">
+        <label>숫자를 입력하시오</label>
+        <input type="text" name="num1" id="num1">
+        <input type="text" name="num2" id="num2">
+        <input type="text" name="num3" id="num3">
+        <input type="text" name="num4" id="num4">
+        <input type="text" name="num5" id="num5">
+        <button type="button" onclick="sorted()">입력</button>
+    </form>
+    <h2 id="return1"></h2>
+    <script>
+        function sorted(){
+            var nums = [];
+            for(var i=0; i<5;i++){
+                nums[i] = Number(document.getElementById("num"+(i+1)).value);
+            }
+            nums.sort(function(a,b){
+                return b-a;
+            });
+            document.getElementById("return1").innerText = nums;
+        }
+    </script>
+</body>
+</html>

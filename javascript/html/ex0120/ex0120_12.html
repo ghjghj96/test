@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //BMI지수= 몸무게(kg) ÷ (신장(m) × 신장(m))
+        //BMI지수= 몸무게(kg) ÷ (신장(m) × 신장(m))
+        function bmi_result(name, weight, height){
+            return height / (weight/100 * weight/100);
+            document.getElementById("bmiHong").innerText=bmi_result('홍길동',80,180)
+        }
+
+        
+    </script>
+    
+    <button onclick="bmi_result('홍길동',80,180)">홍길동</button>
+    <h3>홍길동 BMI지수 : <span id="bmiHong"> </span></h3>
+    <button onclick="bmi_result('이순신',70,167)">이순신</button>
+    <h3>이순신 BMI지수 : <span> </span></h3>
+     
+    <h2>BMI지수 계산기</h2>
+    <input type="text" name="name" id="name" placeholder="이름을 입력하세요."><br>
+    <input type="text" name="weight1" id="weight1" placeholder="몸무게를 입력하세요."><br>
+    <input type="text" name="height1" id="height1" placeholder="키를 입력(cm로 넣어주세요.)"><br>
+    <button onclick="">자동계산</button>
+    <table>
+        <tr>
+            <td>bmi지수</td>
+            <td>결과값 출력</td>
+        </tr>
+    </table>
+</body>
+</html>

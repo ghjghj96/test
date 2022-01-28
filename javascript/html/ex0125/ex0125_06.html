@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        var today = new Date();
+        var nowYear = today.getFullYear();
+        var nowMonth = today.getMonth();
+        var nowDay = today.getDay();
+        var nowDate = today.getDate();
+        document.write("년도 :" +nowYear, "<br>");
+        document.write("1월 :" +nowMonth, "<br>");
+        document.write("25일 :" +nowDate, "<br>");
+        document.write("화요일 :" +nowDay, "<br>");
+
+        var arrDay = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일','토요일'];
+        arrDay[nowDay];
+        // let k_nowDay
+        // switch(nowDay){
+        //     case 0:
+        //     k_nowDay = "일요일";
+        //     break;
+        //     case 1:
+        //     k_nowDay = "월요일";
+        //     break;
+        //     case 2:
+        //     k_nowDay = "화요일";
+        //     break;
+        //     case 3:
+        //     k_nowDay = "수요일";
+        //     break;
+        //     case 4:
+        //     k_nowDay = "목요일";
+        //     break;
+        //     case 5:
+        //     k_nowDay = "금요일";
+        //     break;
+        //     case 6:
+        //     k_nowDay = "토요일";
+        //     break;
+        // }
+        document.write("해당일 :" +nowYear, "년" +(nowMonth+1), "월" +nowDate, "일", arrDay[nowDay]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

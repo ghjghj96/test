@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                var num = $("input:checkbox[name=tour]:checked").length;
+                var arr = ""
+                if (num <3){
+                    alert("3개 이상 선택하세요");
+                    return false;
+                }else{
+                    $("input:checkbox[name=tour]:checked").each(function(){
+                        arr += $(this).next().text()+", ";
+                    })
+                    alert(arr.substr(0,arr.length-2)+" (을/를) 선택하셨습니다.")
+                    return $("#frm").submit();
+                };
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>여행지</h2>
+    <form action="https://www.naver.com" id="frm">
+        <label>여행지를 선택해 주세요.</label><br>
+        <input type="checkbox" name="tour" id="t01" value="t01">
+        <label for="t01">영국</label>
+        <input type="checkbox" name="tour" id="t02" value="t02">
+        <label for="t02">프랑스</label>
+        <input type="checkbox" name="tour" id="t03" value="t03">
+        <label for="t03">독일</label>
+        <input type="checkbox" name="tour" id="t04" value="t04">
+        <label for="t04">이탈리아</label>
+        <input type="checkbox" name="tour" id="t05" value="t05">
+        <label for="t05">스페인</label>
+        <button type="button" id="btn">제출</button>
+
+    </form>
+</body>
+</html>

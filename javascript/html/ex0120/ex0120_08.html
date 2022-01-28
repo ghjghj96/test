@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, th{
+            border:1px solid black; border-collapse: collapse;
+        }
+        th{
+            width: 500px; height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function order(){        
+        grade =[]
+        grade[0] = document.getElementById("name").value;
+        grade[1]=Number(document.getElementById("ko").value);
+        grade[2]=Number(document.getElementById("en").value);
+        grade[3]=Number(document.getElementById("math").value);
+        grade[4]=grade[1]+grade[2]+grade[3]
+        grade[5]=grade[4]/3
+
+        var inputHtml = "";
+        for(var i=0; i<6; i++){
+        inputHtml = inputHtml + "<th>"+grade[i]+"</th>"
+        }
+        console.log(inputHtml);
+            document.getElementById("dataIn").innerHTML = inputHtml;
+    }
+    </script>
+    <form action="#" method="">
+        <label>이름</label>
+            <input type="text" name="name" id="name"><br>
+        <label>국어</label>
+            <input type="text" name="ko" id="ko"><br>
+        <label>영어</label>
+            <input type="text" name="en" id="en"><br>
+        <label>수학</label>
+            <input type="text" name="math" id="math"><br><br>
+        <button type="button" onclick="order()">입력</button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
+        </tr>
+        <tr id="dataIn">
+
+        </tr>
+    </table>
+</body>
+</html>

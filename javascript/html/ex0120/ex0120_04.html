@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="">
+        <input type="text" name="lst" id="lst">
+        <button type="button" onclick="cal()">입력</button>
+    </form>
+    
+    <script>
+        function cal(){
+            lst=[];
+            lst = document.getElementById("lst").value;
+            lst_split= lst.split(",").map(Number);
+            lst_sortDown= lst_split.sort(function(a,b){return a-b;});
+            lst_sortUp= lst_split.sort(function(a,b){return b-a;});
+            lst_max = Math.max.apply(null,lst_split);
+            lst_min = Math.min.apply(null,lst_split);
+            var dataHtml="";
+                for(var i=0;i<10;i++){
+                    dataHtml = dataHtml + "<tr>";
+                    dataHtml = dataHtml + "<td>1</td>";
+                    dataHtml = dataHtml + "<td>게시물 등록</td>";
+                    dataHtml = dataHtml + "<td>2022-01-20</td>";
+                    dataHtml = dataHtml + "<td>1</td>";
+                    dataHtml = dataHtml + "</tr>";
+                }
+    
+                document.getElementById("dataIn").innerHTML = dataHtml;
+        }
+    </script>
+
+    <table>
+        <colgroup>
+            <col width="100px">
+            <col width="100px">
+        </colgroup>
+        
+        <!-- innerHtml 넣을것 -->
+        <tbody id="dataIn">
+            <tr>
+                <td>최대값</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>최소값</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>오름차순</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>내림차순</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

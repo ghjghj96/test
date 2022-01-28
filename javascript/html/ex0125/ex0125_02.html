@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+            for(var i = 1901; i<2023; i++){
+                $("#year").append("<option value="+i+">"+i+"년</option>");
+            };
+            for(var i = 1; i<13; i++){
+                $("#month").append("<option value="+i+">"+i+"월</option>");
+            };
+            let count = 1;
+            // $("#year").change(function(){
+            //     $(".txt").text(count+" 번 셀랙트 박스를 변경했습니다.");
+            //     count++;
+            // });
+            $("#year, #month").change(function(){
+                $(".txt").text($("#year").val()+"년도 "+$("#month").val()+"월을 선택하셨습니다.");
+                count++;
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <select id="year">
+        <!-- <option value="1901">1901년</option>
+        <option value="1902">1902년</option>
+        <option value="1903">1903년</option>
+        <option value="1904">1904년</option> -->
+    </select>
+    <select id="month">
+        <!-- <option value="1">1월</option>
+        <option value="2">2월</option> -->
+    </select>
+    <p class="txt"></p>
+</body>
+</html>

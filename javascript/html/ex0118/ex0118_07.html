@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cal(){
+            var num1 =parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("plus").innerText = num1 + num2;
+            document.getElementById("mul").innerText = num1 * num2;
+            if(num1>num2){
+                document.getElementById("com").innerText = num1;
+            }else if(num1<num2){
+                document.getElementById("com").innerText = num2;
+            }else{
+                document.getElementById("com").innerText = "같음";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="get">
+        <label>NUM1</label>
+        <input type="text" name="num1" id="num1">
+        <br>
+        <label>NUM2</label>
+        <input type="text" name="num2" id="num2">
+        <br>
+        <button type="button" onclick="cal()">확인</button>
+        <br>
+    </form>
+    <table>
+        <tr>
+            <td>더하기</td>
+            <td id="plus"></td>
+        </tr>
+        <tr>
+            <td>곱하기</td>
+            <td id="mul"></td>
+        </tr>
+        <tr>
+            <td>비교</td>
+            <td id="com"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

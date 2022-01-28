@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, tr, td{
+        border:1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <form action="#" method="">
+        <label>숫자1</label>
+        <input type="text" name="num1" id="num1"><br>
+        <label>숫자2</label>
+        <input type="text" name="num2" id="num2"><br>
+        <button type="button" onclick="f_cal()">4칙연산</button>
+    </form>
+    <table>
+        <tr>
+            <td>더하기 결과</td>
+            <td id="t01"></td>
+        </tr>
+        <tr>
+            <td>빼기 결과</td>
+            <td id="t02"></td>
+        </tr>
+        <tr>
+            <td>곱하기 결과</td>
+            <td id="t03"></td>
+        </tr>
+        <tr>
+            <td>나누기 결과</td>
+            <td id="t04"></td>
+        </tr>
+    </table>
+    <script>
+        function f_cal(){
+            var result1 = [];
+            result1 = cal();
+            document.getElementById("t01").innerText = result1[0];
+            document.getElementById("t02").innerText = result1[1];
+            document.getElementById("t03").innerText = result1[2];
+            document.getElementById("t04").innerText = result1[3];
+            
+        }
+
+        function cal(){
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+            var result1 = [];
+            result1[0] = num1+num2;
+            result1[1] = num1-num2;
+            result1[2] = num1*num2;
+            result1[3] = num1/num2;
+            return result1;
+        }
+        
+    </script>
+</body>
+</html>

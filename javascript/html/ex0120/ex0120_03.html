@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{width:300px; height:200px; border:1px solid black;}
+    </style>
+</head>
+<body>
+    <div id="d01">좋은 하루 보내세요.
+
+    </div>
+    <script>
+        var str = "124,90,45,37,80";
+        // 문자를 지정된 형태의 단위로 자르기
+        var strArr = str.split(",");
+        //문자를 숫자형태로 잘라서 배열에 저장시켜줌.
+        var numArr2 = str.split(",").map(Number);
+        var numArr=[];
+        for(var i=0;i<strArr.length;i++){
+            numArr[i] = Number(strArr[i]);
+        }
+
+        document.write(typeof(numArr[4]),"<br>");
+        document.write("numArr2 : ",typeof(numArr2[4]),"<br>");
+        document.write(typeof(strArr[0]),"<br>");
+        document.write(strArr[0],"<br>");
+        document.write(strArr[1],"<br>");
+        document.write(strArr[2],"<br>");
+        document.write(strArr[3],"<br>");
+        document.write(strArr[4],"<br>");
+        document.write(strArr.sort(),"<br>");
+        // 최대값, 최소값, 순차정렬, 역순정렬
+        document.write(strArr.sort(),"<br>");
+        document.write("최대값 : ",Math.max(numArr[0],numArr[1],numArr[2],numArr[3],numArr[4]),"<br>");
+        Math.max(numArr[0],numArr[1],numArr[2],numArr[3],numArr[4]);
+        Math.max.apply(null,numArr2);
+        document.write(" numArr2 최대값 : ",Math.max.apply(null,numArr2),"<br>");
+
+        
+        
+        
+        //document.getElementById("d01").innerText="좋은 하루 보내세요.";
+        //document.getElementById("d01").innerHTML="<h2>좋은 하루 보내세요.</h2>";
+    </script>
+    
+</body>
+</html>
+</body>
+</html>

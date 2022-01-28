@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td, th {border: 1px black solid;}
+    </style>
+
+    <script>
+        
+    </script>
+</head>
+<body>
+    <script>
+        function bmiresult(name,weight,height){
+            
+            
+
+            if (name=="홍길동"){
+                var bmi1= Number(weight) / (Number(height/100)*Number(height/100))
+                document.getElementById("hongbmi").innerText = bmi1
+            }
+            else if (name=="이순신") {
+                var bmi2= Number(weight) / (Number(height/100)*Number(height/100))
+                document.getElementById("leebmi").innerText = bmi2
+            } 
+               
+            }
+        
+
+        function bmiresult2(){
+
+            var weight= Number(document.getElementById("userweight").value)
+            var height = Number(document.getElementById("userheight").value) / 100
+            var bmi= weight / (height*height)
+            
+            // if (bmi<18.5) {
+            //     return "저체중"
+            // }else if (bmi <23.5){
+            //     return "표준체중"
+            // }else {
+            //     return "과체중"
+            // }
+
+            document.getElementById("bmical").innerText= bmi
+            // document.getElementById("result1").innerText = bmiresult2()
+            
+        }
+       
+    </script>
+
+    <button type="button" onclick="bmiresult('홍길동','80','180')" id="hong">홍길동 bmi 계산</button>
+    <h3> 홍길동 bmi 지수 <span id=  "hongbmi">  </span></h3>
+    <button type="button" onclick="bmiresult('이순신','70','167')" id= "lee">이순신 bmi 계산</button>
+    <h3> 이순신 bmi 지수 <span id=  "leebmi">  </span></h3>
+
+    <h2>BMI 지수 계산기 </h2>
+    <input type="text" name="name" id="username" placeholder="이름을 입력하세요"> <br>
+    <input type="text" name="name" id="userweight" placeholder="몸무게(kg)를 입력하세요"> <br>
+    <input type="text" name="name" id="userheight" placeholder="키(cm)를 입력하세요"> <br>
+    <button onclick="bmiresult2()">자동계산</button>
+    <table>
+        <tr>
+            <td>bmi 지수</td>
+            <td>결과값 출력</td>
+        </tr>
+        <tr>
+            <td id="bmical"></td>
+            <td id="result1"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

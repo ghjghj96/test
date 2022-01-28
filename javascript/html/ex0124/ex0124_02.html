@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        label{width:80px; display: inline-block;}
+        input{margin-bottom:10px;}
+        textarea{width:400px; height:200px; vertical-align: top;}
+
+        table,th,td{border:1px solid black; border-collapse: collapse;
+              text-align: center;
+        }
+        th,td{height:40px;}
+        table{width:1200px; margin:0 auto; }
+        tr>td:nth-child(5){cursor: pointer;}
+    </style>
+    <script>
+        $(function(){
+            var count=0;
+            $("#num").val("1"); 
+            $("#btn").click(function(){
+                if($.trim($("#title").val())==""){
+                    alert("제목을 입력하셔야 등록이 가능합니다.");
+                    $("#title").focus();
+                    return false;
+                }
+                var num = $("#num").val(); 
+                var id = $("#id").val(); 
+                var title = $("#title").val(); 
+                var content = $("#content").val(); 
+                var c_date = $("#c_date").val(); 
+
+                //html소스 저장
+                var in_html="";
+                in_html += "<tr>"; 
+                in_html += "<td>"+ num +"</td>"; 
+                in_html += "<td>"+ title +"</td>"; 
+                in_html += "<td>"+ c_date +"</td>"; 
+                in_html += "<td>"+ id +"</td>"; 
+                in_html += "<td id='"+ count +"' onclick='hitCount("+count+")'>1</td>"; 
+                in_html += "</tr>"; 
+
+                
+
+                if(count==0) $("#ctxt").html(in_html); //#ctxt 내 모든 html삭제후 추가
+                else $("#ctxt").prepend(in_html);           //#ctxt html 상위에 추가
+
+                count++;  
+                $("#num").val(count);
+                var id = $("#id").val(""); 
+                var title = $("#title").val(""); 
+                var content = $("#content").val(""); 
+                var c_date = $("#c_date").val(""); 
+                var c_date = $("#num").val(""); 
+
+            });
+        });
+
+        function hitCount(count){
+            alert("호출된 번호: "+count)
+            alert("조회값: "+$("#"+count).text())
+
+            // var hit = Number($("#"+count).text())+1;
+            $("#"+count).text(Number($("#"+count).text())+1);
+        }
+    </script>
+</head>
+<body>
+    <h2>게시판</h2>
+    <form>
+        <label>번호</label>
+        <input type="text" name="num" id="num" readonly><br>
+        <label>작성자</label>
+        <input type="text" name="id" id="id"><br>
+        <label>제목</label>
+        <input type="text" name="title" id="title"><br>
+        <label>내용</label>
+        <textarea name="content" id="content"></textarea><br>
+        <label>날짜</label>
+        <input type="date" name="c_date" id="c_date"><br>
+        <input type="button" id="btn" value="등록">
+    </form>
+    <br><br>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>날짜</th>
+            <th>작성자</th>
+            <th>조회수</th>
+        </tr>
+        <!-- 글등록 -->
+        <tbody id="ctxt">
+            <tr>
+                <td colspan="5">현재 데이터가 없습니다.</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    
+</body>

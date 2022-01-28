@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="get" name="form01">
+        <input type="hidden" name="ip" value="">
+        <label>고객번호</label>
+        <span>0001</span>
+        <!-- <input type="text" name="userid" id="userid" maxlength="8" readonly value="0001"><br> -->
+        <label>아이디</label>
+        <input type="text" name="userid" id="userid" maxlength="8" autofocus><br>
+        <label>비밀번호</label>
+        <input type="password" name="userpw" id="userpw" placeholder="비밀번호는 8자리 이상"><br>
+        <label>검색</label>
+        <input type="search" name="search" id="search"><br>
+        <label>성별</label>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female">
+        <label for="female">여자</label>
+        <br>
+        <label>취미</label>
+        <input type="checkbox" name="hobby" id="swim" value="swim">
+        <label for="swim">수영</label>
+        <input type="checkbox" name="hobby" id="golf" value="golf" checked>
+        <label for="golf">골프</label>
+        <input type="checkbox" name="hobby" id="game" value="game">
+        <label for="game">게임</label>
+        <input type="checkbox" name="hobby" id="read" value="read">
+        <label for="read">독서</label>
+        <br>
+
+        <input type="date" name="date" id="date"><br>
+        <label>날짜</label>
+        <label>년도</label>
+        <select name="birthyear">
+            <option value="1900">1900</option>
+            <option value="1901">1901</option>
+            <option value="1902">1902</option>
+        </select>
+        <textarea name="content" cols="20" rows="20"></textarea>
+        <button type="submit">
+            <img src="../images/check.jpg" width="15px">
+            전송</button>
+
+        <!-- <input type="submit" value="전송"> -->
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
+    </form>
+</body>
+</html>

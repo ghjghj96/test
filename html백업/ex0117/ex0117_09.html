@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/prefixfree.min.js"></script>
+    <style>
+        /* #a01{width:300px; height:200px;
+            animation: arotate 5s infinite alternate;
+        } */
+
+        #a02{ width: 300px; height: 200px;
+            animation: amove 5s infinite alternate ;
+        /* }
+        @keyframes arotate{
+            from {
+                transform:perspective(100px) rotateX(0deg) scale(1);
+                
+            }
+            50% {transform:perspective(100px) rotateX(180deg) scale(3);
+               
+            }
+            to{
+                transform:perspective(100px) rotate(180deg) scalex(0.5);
+                
+            } */
+        }
+        @keyframes amove{
+            from { transform:translateX(0px)scale(1)}
+            50%{transform:translateX(250px) scale(2)}
+            to { transform:translateX(500px)scale(4)}
+        }
+
+        .d02{
+            width:300px; height:300px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        #img01{
+            width:500px;
+            transition-property:all;
+            transition-duration:1s;
+
+        }
+        #img01:hover{
+            width:600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d02">
+        <img  id="img01" src="../images/bts-img.jpg">
+    </div>
+    <div>
+        <img id="a01" src="../images/lofin.png" alt="">
+        <hr>
+        <img id="a02" src="../images/car1-1.png">
+    </div>
+</body>
+</html>

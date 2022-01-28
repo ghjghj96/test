@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        label{width: 80px; display: inline-block;}
+        textarea{width: 400px; height: 200px;}
+        table, th, td{border-collapse: collapse; border:1px solid black; text-align: center;}
+        th, td{width: 200px;}
+    </style>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                var num = $("#id").val();
+                var title = $("#title").val();
+                var c_date = $("#c_date").val();
+                var id = $("#id").val();
+
+                var htmlform="";
+                htmlform  += "<tr>";
+                htmlform  += "<td>"+num+"</td>";
+                htmlform  += "<td>"+title+"</td>";
+                htmlform  += "<td>"+c_date+"</td>";
+                htmlform  += "<td>"+id+"</td>";
+                htmlform  += "<td>"+num+"</td>";
+                htmlform  += "</tr>";
+
+                $("#ctxt").append(htmlform);
+
+                $("#id, #title, #c_date, #id").val("");
+                
+            })
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <h2>게시판</h2>
+    <form>
+        <label>번호</label>
+        <input type="text" name="num" id="num" readonly><br>
+        <label>작성자</label>
+        <input type="text" name="id" id="id"><br>
+        <label>제목</label>
+        <input type="text" name="title" id="title"><br>
+        <label>내용</label>
+        <textarea name="content" id="content"></textarea><br>
+        <label>날짜</label>
+        <input type="date" name="c_date" id="c_date"><br>
+        <input type="button" id="btn" value="등록">
+    </form>
+    <br><br>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>날짜</th>
+            <th>작성자</th>
+            <th>조회수</th>
+        </tr>
+        <tbody id="ctxt">
+            <tr>
+                <td colspan="5">현재 데이터가 없습니다.</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</body>
+</html>

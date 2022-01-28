@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var site = prompt("원한는 사이트 이름을 입력하시오.\n 네이버, 다음, 내이트, 구글");
+
+        switch(site){
+            case"네이버":
+                url="http://www.naver.com";
+                break;
+            case"다음":
+                url="http://www.daum.net";
+                break;
+            case"네이트":
+                url="http://www.nate.net";
+                break;
+            case"구글":
+                url="http://www.google.com";
+                break;
+            default:
+                alert("해당이 되지 않습니다.");
+                break;
+        }
+        if(url){
+            location.href=url;
+        }
+    </script>
+</body>
+</html>

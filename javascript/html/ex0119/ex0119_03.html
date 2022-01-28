@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;; 
+            border-collapse: collapse;;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get" name="frm">
+        <label>숫자를 맞춰보세요.(1~10까지 번호중)</label>
+        <input type="text" name="num" id="num"><br>
+        <button type="button" onclick="actionNum()">확인</button>
+    </form>
+    <table>
+        <tr>
+            <td>랜덤 숫자를 맞춰보세요.</td>
+            <td>랜덤 숫자는?</td>
+        </tr>
+        <tr>
+            <td>입력한 숫자</td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        var rNum = 0;
+        cnt = 1;
+        a=0;
+        lst=[];
+        rNum = parseInt(Math.random()*10)+1;
+        function actionNum(){
+            if(cnt>=5){
+                alert("입력한 숫자"+ lst);
+                alert("실패했습니다.");
+                return;
+            }
+            console.log("랜덤 번호 : ", rNum);
+            console.log("입력 번호 : ", parseInt(document.getElementById("num").value));
+            console.log("실행 횟수 : ", cnt);
+            var num = parseInt(document.getElementById("num").value)
+            lst[a]=num;
+            a++;
+            cnt++;
+            console.log(lst);
+            if(num>rNum){
+                alert("랜덤 숫자보다 큽니다");
+            }else if(num<rNum){
+                alert("랜덥 숫자보다 작습니다.");
+            }else if(num==rNum){
+                alert("정답입니다.", rNum);
+            }
+
+        }
+    </script>
+</body>
+</html>
