@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{border:1px solid black; border-collapse: collapse; text-align: center}
+        td, th{width: 100px;}
+    </style>
+</head>
+<body>
+    <h2>은행목록</h2>
+    <table>
+        <tr>
+            <th>은행이름</th>
+            <th>금리</th>
+        </tr>
+        {% if banks %}
+        {% for bank in banks %}
+        <tr>
+            <td><a href=" {%url 'banks:modify' bank.b_name %}">{{bank.b_name}}</a></td>
+            <td>{{bank.b_rate}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <h3><a href="/banks/add">은행 추가</a></h3>
+    <h3><a href="/banks/delete">은행 삭제</a></h3>
+    <h3><a href="{% url 'index' %}">매안페이지</a></h3>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td {border: 1px solid grey; text-align: center}
+        table { width: 500px}
+        #basicText {text-align: center}
+    </style>
+</head>
+<body>
+    <h2>학생 검색 페이지</h2>
+    <div>
+        <form action=" {% url 'students:nameSearch'  %}" method="post">
+            {% csrf_token %}
+            <label>이름</label>
+            <input type="text" name="nameSearch">
+            <input type="submit" value="검색">
+            
+        </form>
+        <br>
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>전공</th>
+                <th>나이</th>
+                <th>학년</th>
+                <th>성별</th>
+            </tr>
+            {% if outcomes %}
+                {% for outcome in outcomes %}
+                <tr>
+                    <td> {{outcome.s_name}} </td>
+                    <td> {{outcome.s_major}} </td>
+                    <td> {{outcome.s_age}} </td>
+                    <td> {{outcome.s_grade}} </td>
+                    <td> {{outcome.s_gender}} </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" id='basicText'>데이터가 없습니다</td>
+                </tr>
+            {% endif %}
+            
+
+
+
+        </table>
+
+        <h3> <a href= / > 메인 페이지로 이동 </a> </h3>
+
+    </div>
+</body>
+</html>

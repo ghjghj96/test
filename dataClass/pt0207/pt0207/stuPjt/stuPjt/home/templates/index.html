@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" >
+    <title>Document</title>
+</head>
+<body>
+    <h2>메인페이지</h2>
+    <h3>총 학생수: {{u_count}}</h3>
+    <h3>{{user_id}} 님 환영합니다.</h3>
+    <ul>
+        <li><a href="{% url 'students:reg' %}">학생등록페이지 이동</a></li>
+        <li><a href="{% url 'students:reglist' %}">학생리스트페이지 이동</a></li>
+        <li><a href="/admin">admin 페이지 이동</a></li>
+        {% comment %} / : root 뒤에 주소값을 붙이겠다 
+        ../ : 한 폴더 앞칸으로 가서 주소값을 붙이겠다
+        ./ : 현대 폴어 뒤에 주소값을 붙이겠다 {% endcomment %}
+    </ul>
+    <br>
+    <img src= "{%  static 'images/image.jpg'%}">
+
+    <br>
+</body>
+</html>

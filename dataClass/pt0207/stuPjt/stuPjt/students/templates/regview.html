@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{border:1px solid black; border-collapse: collapse; text-align:center;}
+        table {width:550px}
+        th{width:200px}
+    </style>
+    <script>
+        function deletebtn(){
+            alert("삭제 호출")
+            if ( confirm("학생 정보를 삭제하겠습니까?")) {
+                location.href="{% url 'students:regdelete' stu.s_name  %}"
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>학생 상세 페이지</h2>
+    
+    <table>
+        {% if stu %}
+        <tr>
+        <th>학생이름</th>
+           <td>{{stu.s_name}}</td>
+       </tr>
+
+        <tr>
+        <th>학과</th>
+           <td>{{stu.s_major}}</td>
+       </tr>
+
+        <tr>
+        <th>나이</th>
+           <td>{{stu.s_age}}</td>
+       </tr>
+
+        <tr>
+        <th>학년</th>
+           <td>{{stu.s_grade}}</td>
+       </tr>
+
+        <tr>
+        <th>성별</th>
+           <td>{{stu.s_gender}}</td>
+       </tr>
+       {% endif %}
+    </table>
+    <br>
+    <button>  <a href= "{% url 'students:regmodify'  stu.s_name %}"> 수정 </a></button>
+    <button onclick="deletebtn()">  삭제  </button>
+    {% comment %} <button> <a href= "{% url 'students:regdelete' stu.s_name  %}">삭제 </a> </button> {% endcomment %}
+    <button> <a href="{% url 'students:reglist' %}">학생 리스트로</a> </button>
+</body>
+</html>

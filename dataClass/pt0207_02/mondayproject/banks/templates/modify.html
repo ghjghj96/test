@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{border:1px solid black; border-collapse: collapse; text-align: center}
+        td, th{width: 100px;}
+    </style>
+</head>
+<body>
+    <h2>은행수정</h2>
+    <form action="{% url 'banks:modifyBankprocess' %}" method="post">
+        {% csrf_token %}
+        <label>은행이름 : {{outcome.b_name}}</label>
+        <input type="hidden" name="name" value={{outcome.b_name}}><br>
+        <label>금리</label>
+        <input type="text" name="rate" value={{outcome.b_rate}}>
+        <input type="submit"  value="수정">
+    </form>
+    <h3><a href="/banks/add">은행 추가</a></h3>
+    <h3><a href="{% url 'index' %}">매안페이지</a></h3>
+</body>
+</html>

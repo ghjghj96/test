@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>학생등록 페이지</h2>
+
+    <p> 이 페이지에서 드는  의문점...  slash는 앞뒤에 언제 어디에 붙여야하는지 전혀 이해가 안 간다 어떤 규칙이나 로직이 있을 텐데..
+
+    </p>
+
+    <form action="{% url 'students:regCon'  %}" method="post">
+    {% comment %} <form action= " /students/regCon/ "  method= 'post'>    {% endcomment %}
+        {% comment %} 간단 url이 안돼서 이렇게 수정함. 그런데 slash를 언제 해야하는 건지 구분이 안됨. {% endcomment %}
+        {% comment %} 그리고 간단 url은 왜 안됐을까..? 다른 파일들에서도 간단url은 다 안됨.. {% endcomment %}
+        {% csrf_token %}
+        <label>학생이름</label>
+        <input type="text" name="name" ><br>
+        <label>학과</label>
+        <input type="text" name="major"><br>
+        <label>나이</label>
+        <input type="text" name="age"><br>
+        <label>학년</label>
+        <input type="text" name="grade"><br>
+        <label>성별</label>
+        <input type="text" name="gender"><br>
+        <input type="submit" value="저장">
+        <br>
+        <a href="/">메인페이지 이동</a>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/style.css'%} " rel='stylesheet'>
+ 
+</head>
+<body>
+    <h2>인덱스 페이지입니다</h2>
+    <h3>총 학생수: {{u_count}} </h3>
+    <h3>{{user_id}} 님 로그인되었습니다. </h3>
+    <ul>
+        <li><a href='students/reg'>학생 등록 페이지 이동</li>
+        <li><a href="{%  url 'students:reglist' %}" >학생 리스트</a></li>
+        {% comment %} 간편 url은 다 name따라 가는 거임. {% endcomment %}
+
+        <li> <a href="/admin"> admin 페이지 이동</a></li>
+        {% comment %} 그냥 /만 있으면 root.  root뒤에 붙인다는 뜻
+../  이러면? 한칸 위로 올라와서 넣는다    ./면 현재폴더 그대로에서 넣는다 . {% endcomment %}
+    </ul>
+
+    <br>
+    <img src='{% static "images/tree.jpg" %}'><br>
+
+
+</body>
+</html>
+
+
